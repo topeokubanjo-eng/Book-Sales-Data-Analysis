@@ -27,7 +27,42 @@ The dataset contains information related to book sales, including:
 - Publishing year
 
 ---
+## Interactive PowerBI Dashboard
+![PowerBi Screenshot](https://github.com/user-attachments/assets/a2c35abd-37fb-42d0-92df-46ff6e448887
 
+- Sales by Author
+  - Compares gross sales across authors
+  - Helps identify top-performing authors
+
+- Language Distribution of Sales
+  - Shows contribution of sales by language code
+  - Useful for understanding market/language concentration
+
+- Units Sold per Sale Price
+  - Visualizes relationship between price points and units sold
+  - Helps identify pricing patterns
+
+- Units Sold Over Time
+  - Tracks units sold by publishing year
+  - Highlights long-term trends and spikes in recent years
+
+### Tools Used
+
+- Python (data cleaning / analysis)
+- Excel (cleaned dataset)
+- Power BI (interactive dashboard)
+
+### How to Open the Dashboard
+
+- Download the `.pbix` file from this repository
+- Open it in Power BI Desktop
+
+
+
+
+
+
+---
 ## Exploratory Data Analysis & Visual Insights
 
 ### 1. Total Units Sold Over Time
