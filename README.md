@@ -28,7 +28,7 @@ The dataset contains information related to book sales, including:
 
 ---
 ## Interactive PowerBI Dashboard
-![PowerBi Screenshot](https://github.com/user-attachments/assets/a2c35abd-37fb-42d0-92df-46ff6e448887
+![PowerBi Screenshot](https://github.com/user-attachments/assets/a2c35abd-37fb-42d0-92df-46ff6e448887)
 
 - Sales by Author
   - Compares gross sales across authors
