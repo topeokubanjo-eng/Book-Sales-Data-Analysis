@@ -1,30 +1,45 @@
-# Book Sales Data Analysis
+# 📚 Book Sales Data Analysis
 
 ## Overview
-This project focuses on exploratory data analysis (EDA) of book sales data to understand
-sales patterns across authors, individual books, genres, and pricing-related factors.
+This project is an exploratory data analysis (EDA) of a book sales dataset covering **1,070 books** across multiple genres, publishers, and author tiers. The goal is to uncover patterns in sales performance, pricing strategy, ratings, and publisher behaviour — and communicate those findings through clear, multi-layered visualizations.
 
-The analysis emphasizes **visual exploration** using charts and summary statistics to
-identify trends, distributions, and relationships in the data.
+The analysis emphasizes **visual storytelling** using stacked area charts, violin plots, correlation heatmaps, and multi-variable scatter plots to go beyond basic summary statistics.
 
 ---
 
-## Project Objective
-- Analyze book sales trends over time
-- Compare sales performance across authors and books
-- Examine relationships between ratings, popularity, and sales
-- Use visualizations to clearly communicate insights
+## Project Objectives
+- Analyze how book sales have trended across publishing decades and genres
+- Examine the relationship between pricing, ratings, and units sold
+- Profile top-performing authors and publishers
+- Identify correlations between key numeric variables to surface hidden drivers of revenue
 
 ---
 
 ## Dataset
-The dataset contains information related to book sales, including:
-- Book titles
-- Author names
-- Genres
-- Sales figures
-- Book ratings and rating counts
-- Publishing year
+The dataset (`Books_Data_Clean.csv`) contains 15 features per book, including:
+
+| Feature | Description |
+|---|---|
+| `Book Name` | Title of the book |
+| `Author` | Author name |
+| `genre` | Genre category (genre fiction, fiction, nonfiction, children) |
+| `Publishing Year` | Year the book was published |
+| `sale price` | Retail price in USD |
+| `units sold` | Number of units sold |
+| `gross sales` | Total gross revenue |
+| `publisher revenue` | Revenue retained by the publisher |
+| `Book_average_rating` | Average reader rating |
+| `Book_ratings_count` | Total number of ratings received |
+| `Author_Rating` | Author experience tier (Novice → Famous) |
+| `Publisher` | Publishing house |
+
+---
+
+## Tools & Libraries
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Wrangling-lightgrey?logo=pandas)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-orange)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-teal)
 
 ---
 ## Interactive PowerBI Dashboard
@@ -57,85 +72,78 @@ The dataset contains information related to book sales, including:
 - Download the `.pbix` file from this repository
 - Open it in Power BI Desktop
 
-
-
-
-
-
 ---
-## Exploratory Data Analysis & Visual Insights
+## Visualizations & Key Insights
 
-### 1. Total Units Sold Over Time
-This line chart shows how total book sales have evolved across publishing years.
+### Figure 1 — Publishing Trends & Genre Landscape
+![Publishing Trends & Genre Landscape](images/fig1_trends_genre.png)
 
-![Total Units Sold Over Time](images/units_sold_over_time.png)
-
-**Insight:**  
-Book sales increase significantly in more recent years, indicating growth in publishing
-volume and/or reader demand over time.
+**Insights:**
+- **Genre fiction dominates** — it accounts for **76.8%** of all titles in the dataset, with nonfiction a distant second at 16.2%
+- **Sales volume surged in the 2000s**, peaking around 2010–2013 before declining, likely reflecting a boom in digital self-publishing followed by market saturation
+- The **KDE density plot** reveals that genre fiction and nonfiction titles are concentrated heavily in the post-2000 era, while children's books have a flatter, broader publishing history
+- Despite being the smallest genre by volume, **children's books average the highest units sold per title (~19,875)**, nearly double nonfiction and genre fiction (~9,700) — indicating a highly concentrated, high-performing niche
 
 ---
 
-### 2. Total Gross Sales by Author
-This bar chart compares total gross sales across different authors.
+### Figure 2 — Pricing, Ratings & Revenue
+![Pricing, Ratings & Revenue](images/fig2_pricing_ratings.png)
 
-![Total Gross Sales by Author](images/author_sales_bar_chart.png)
-
-**Insight:**  
-A small number of authors account for a large share of total sales, suggesting strong
-author-driven demand and popularity effects.
-
----
-
-### 3. Book Rating vs Rating Count
-This scatter plot examines the relationship between average book ratings and the number
-of ratings received.
-
-![Book Rating vs Rating Count](images/ratings_vs_rating_count.png)
-
-**Insight:**  
-Higher ratings do not necessarily correspond to higher engagement. Popularity (rating
-count) varies widely even among similarly rated books.
+**Insights:**
+- **Price and units sold have a weak negative relationship** — the scatter plot and trend line show that most high-volume books are priced between $1–$5, reinforcing that lower price points drive higher volume sales
+- **Famous authors command both higher ratings and more consistent quality** — the violin plot shows that books by Famous-tier authors cluster tightly around 4.25–4.5 stars, while Novice authors have far wider variance and a lower median (~3.4)
+- The **3-variable scatter** (rating × ratings count, coloured by units sold) shows that the highest-selling books aren't always the highest rated — popularity (ratings count) is a stronger signal of sales volume than average rating alone
+- **Fiction generates the highest average gross sales (~$2,200)** despite being only 5.5% of titles, suggesting individual fiction titles perform exceptionally well — a quality-over-quantity dynamic
 
 ---
 
-### 4. Distribution of Ratings Count by Genre
-This boxplot compares the distribution of rating counts across genres.
+### Figure 3 — Authors, Publishers & Correlations
+![Authors, Publishers & Correlations](images/fig3_authors_publishers.png)
 
-![Ratings Count by Genre](images/genre_rating_boxplot.png)
+**Insights:**
+- **Harper Lee leads all authors in gross sales ($47,795)**, followed closely by Stephen King ($43,323) and David Sedaris ($42,323) — a mix of literary fiction and popular nonfiction at the top
+- **Amazon Digital Services dominates by volume** but is heavily concentrated in genre fiction, while traditional publishers like Random House and HarperCollins maintain a more balanced genre mix across their catalogues
+- The **units sold boxplot by author tier** reveals a surprising pattern: Excellent-rated authors have the widest spread and highest ceiling — suggesting this tier contains breakout hits — while Famous authors have tight, moderate distributions, possibly due to smaller catalogue sizes in this dataset
+- The **correlation heatmap** highlights that `gross sales` and `publisher revenue` are very strongly correlated (r = 0.92), confirming publishers' revenue is near-linearly tied to gross performance. Notably, `units sold` shows a **negative correlation with ratings count (r = -0.25)**, suggesting that books with massive rating counts are not necessarily the top sellers by volume — an interesting tension between visibility and sales conversion
 
-**Insight:**  
-Genres such as fiction and nonfiction show higher variability and more extreme outliers,
-while children's books tend to have more consistent engagement levels.
+---
+
+## How to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/topeokubanjo-eng/book-sales-data-analysis.git
+cd book-sales-data-analysis
+
+# Install dependencies
+pip install pandas matplotlib seaborn numpy
+
+# Run the notebook
+jupyter notebook Book_Sales_Analysis_Enhanced.ipynb
+```
+
+Make sure `Books_Data_Clean.csv` is in the same directory as the notebook.
+
+---
+
+## File Structure
+```
+📁 Book Sales Data Analysis
+├── 📓 Book_Sales_Analysis_Enhanced.ipynb   # Main analysis notebook
+├── 📄 Books_Data_Clean.csv                 # Cleaned dataset
+├── 📁 images/
+│   ├── fig1_trends_genre.png               # Publishing Trends & Genre Landscape
+│   ├── fig2_pricing_ratings.png            # Pricing, Ratings & Revenue
+│   └── fig3_authors_publishers.png         # Authors, Publishers & Correlations
+└── 📄 README.md
+```
 
 ---
 
 ## Key Takeaways
-- Sales and engagement are unevenly distributed across authors and genres
-- Time trends indicate increasing sales activity in recent years
-- Ratings alone do not explain popularity or sales performance
-- Visual analysis is essential for uncovering patterns not visible in raw data
 
----
-
-## Tools & Technologies
-- Python
-- Pandas
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
-- Microsoft Excel (initial data inspection)
-
----
-
-## Project Files
-- `Book Sales Data Analysis.ipynb` – Data cleaning, EDA, and visualizations
-- `images/` – Screenshots of charts used in analysis
-- Dataset file(s)
-
----
-
-## Notes
-This repository focuses on **data analysis and visualization**, not predictive modeling.
-The goal is to demonstrate analytical thinking and the ability to interpret and communicate
-data-driven insights using effective visualizations.
+> 🔑 **Children's books punch far above their weight** — fewest titles, highest average sales per book  
+> 🔑 **Price elasticity is real** — the sweet spot for volume is under $5  
+> 🔑 **Author prestige correlates with rating consistency**, not necessarily peak sales  
+> 🔑 **Gross sales and publisher revenue move almost in lockstep** (r = 0.92)  
+> 🔑 **Post-2000 publishing dominates the dataset**, but peak volume came around 2010–2013
