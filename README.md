@@ -76,7 +76,8 @@ The dataset (`Books_Data_Clean.csv`) contains 15 features per book, including:
 ## Visualizations & Key Insights
 
 ### Figure 1 — Publishing Trends & Genre Landscape
-![Publishing Trends & Genre Landscape](images/fig1_trends_genre.png)
+<img width="2283" height="1405" alt="image" src="https://github.com/user-attachments/assets/bb0b0bf6-2cfc-4d3b-88c0-7ebcf43c28aa" />
+
 
 **Insights:**
 - **Genre fiction dominates** — it accounts for **76.8%** of all titles in the dataset, with nonfiction a distant second at 16.2%
@@ -87,7 +88,8 @@ The dataset (`Books_Data_Clean.csv`) contains 15 features per book, including:
 ---
 
 ### Figure 2 — Pricing, Ratings & Revenue
-![Pricing, Ratings & Revenue](images/fig2_pricing_ratings.png)
+<img width="2250" height="1535" alt="image" src="https://github.com/user-attachments/assets/fc35c5cc-6edb-42b4-9bd3-c6031502c8bd" />
+
 
 **Insights:**
 - **Price and units sold have a weak negative relationship** — the scatter plot and trend line show that most high-volume books are priced between $1–$5, reinforcing that lower price points drive higher volume sales
@@ -98,7 +100,7 @@ The dataset (`Books_Data_Clean.csv`) contains 15 features per book, including:
 ---
 
 ### Figure 3 — Authors, Publishers & Correlations
-![Authors, Publishers & Correlations](images/fig3_authors_publishers.png)
+<img width="2365" height="1588" alt="image" src="https://github.com/user-attachments/assets/dd913338-419f-4b06-9134-2421bcd09a86" />
 
 **Insights:**
 - **Harper Lee leads all authors in gross sales ($47,795)**, followed closely by Stephen King ($43,323) and David Sedaris ($42,323) — a mix of literary fiction and popular nonfiction at the top
